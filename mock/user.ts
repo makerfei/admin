@@ -155,7 +155,7 @@ export default {
     });
     access = 'guest';
   },
-  'POST /api/login/outLogin': (req: Request, res: Response) => {
+  'POST /api/admin/outLogin': (req: Request, res: Response) => {
     access = '';
     res.send({ data: {}, success: true });
   },

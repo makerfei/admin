@@ -104,5 +104,11 @@ export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) =
       );
     },
     ...initialState?.settings,
+
+
+    //关闭国际化
+    // menu: {
+    //   locale: false  
+    // },
   };
 };

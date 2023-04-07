@@ -65,6 +65,41 @@ export default defineConfig({
         },
       ],
     },
+
+    {
+      path: '/userList',
+      icon: 'table',
+      name: '用户列表',
+      routes: [
+        {
+          name: '用户列表',
+          icon: 'smile',
+          path: '/userList/table-list',
+          component: './userList/table-list',
+        }
+      ],
+    },
+
+    {
+      path: '/goods',
+      icon: 'table',
+      name: '商品',
+      routes: [
+        {
+          name: '类目列表',
+          icon: 'smile',
+          path: '/goods/type-list',
+          component: './goods/type-list',
+        },
+        {
+          name: '商品列表',
+          icon: 'smile',
+          path: '/goods/goods-list',
+          component: './goods/goods-list',
+        }
+      ],
+    },
+
     {
       path: '/dashboard',
       name: 'dashboard',
@@ -310,7 +345,7 @@ export default defineConfig({
     },
     {
       path: '/',
-      redirect: '/dashboard/analysis',
+      redirect: '/userList/table-list',
     },
     {
       component: '404',

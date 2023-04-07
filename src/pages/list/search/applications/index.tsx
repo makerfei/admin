@@ -172,7 +172,9 @@ export const Applications: FC<Record<string, any>> = () => {
                 <Tooltip title="分享" key="share">
                   <ShareAltOutlined />
                 </Tooltip>,
-                <Dropdown key="ellipsis" overlay={itemMenu}>
+                <Dropdown key="ellipsis"
+                //  overlay={itemMenu}
+                 >
                   <EllipsisOutlined />
                 </Dropdown>,
               ]}

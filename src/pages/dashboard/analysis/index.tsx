@@ -82,7 +82,9 @@ const Analysis: FC<AnalysisProps> = () => {
 
   const dropdownGroup = (
     <span className={styles.iconGroup}>
-      <Dropdown overlay={menu} placement="bottomRight">
+      <Dropdown 
+      // overlay={menu}
+       placement="bottomRight">
         <EllipsisOutlined />
       </Dropdown>
     </span>
