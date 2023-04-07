@@ -239,5 +239,5 @@ function getCurrentUser(req: Request, res: Response) {
 export default {
   'GET  /api/fake_list_Detail': getFakeList,
   // 支持值为 Object 和 Array
-  'GET  /api/currentUserDetail': getCurrentUser,
+  'GET  /api/admin/currentUserDetail': getCurrentUser,
 };
