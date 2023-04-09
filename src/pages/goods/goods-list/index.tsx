@@ -280,7 +280,9 @@ const TableList: React.FC = () => {
                           placeholder={item?.title}
                           defaultValue={currentRow[item.dataIndex]}
                           onInput={e => {
-                            setCurrentRow((d: any = {}) => { return { ...d, [item.dataIndex]: e?.currentTarget?.value || '' } })
+                            let value = e?.currentTarget?.value
+
+                            setCurrentRow((d: any = {}) => { return { ...d, [item.dataIndex]: value } })
 
                           }}
                           width="md"
