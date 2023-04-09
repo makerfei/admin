@@ -4,6 +4,8 @@ export default {
   'menu.商品.类目列表': '类目列表',
   'menu.商品': '商品',
   'menu.商品.商品列表': '商品列表',
+  'menu.banner': 'banner',
+  'menu.banner.用户列表': '用户列表',
   'menu.welcome': '欢迎',
   'menu.more-blocks': '更多区块',
   'menu.home': '首页',

@@ -65,6 +65,19 @@ export default defineConfig({
         },
       ],
     },
+    {
+      path: '/banner',
+      icon: 'table',
+      name: 'banner',
+      routes: [
+        {
+          name: 'banner列表',
+          icon: 'smile',
+          path: '/banner/list',
+          component: './banner/list',
+        }
+      ],
+    },
 
     {
       path: '/userList',

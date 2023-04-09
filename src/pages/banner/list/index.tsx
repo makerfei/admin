@@ -6,7 +6,7 @@ import type { ProColumns, ActionType } from '@ant-design/pro-table';
 import ProTable from '@ant-design/pro-table';
 import { ModalForm, ProFormText, ProFormTextArea } from '@ant-design/pro-form';
 
-
+import Upload from '../../goods/goods-list/components/UPload'
 
 import { rule, addRule, updateRule, removeRule } from './service';
 
@@ -45,6 +45,11 @@ const TableList: React.FC = () => {
 
   const actionRef = useRef<ActionType>();
 
+
+
+
+
+
   /** 国际化配置 */
   const columns: ProColumns<TableListItem>[] = [
     {
@@ -53,14 +58,29 @@ const TableList: React.FC = () => {
       hideInSearch: true
     },
     {
-      title: '是否使用',
-      dataIndex: 'isUse',
-      hideInSearch: true
+      title: '图片',
+      dataIndex: 'picUrl',
+      hideInSearch: true,
+      valueType: 'image',
+
+    },
+    {
+      title: '链接',
+      dataIndex: 'linkUrl',
+      hideInSearch: true,
+      render: (_, record) => {
+        return <div style={{
+          width: '250px',
+          maxHeight: '80px',
+        }} >
+          {(record as any).linkUrl}
+        </div >
+      }
       // valueType: 'string',
     },
     {
-      title: '名称',
-      dataIndex: 'name',
+      title: '标题',
+      dataIndex: 'title',
       hideInSearch: true
 
     },
@@ -71,11 +91,19 @@ const TableList: React.FC = () => {
 
     },
     {
-      title: '商品对应分类编号',
-      dataIndex: 'pid',
+      title: '标注',
+      dataIndex: 'remark',
       hideInSearch: true
 
     },
+
+    {
+      title: '类型',
+      dataIndex: 'type',
+      hideInSearch: true
+
+    },
+
     {
       title: `操作`,
       dataIndex: 'option',
@@ -150,26 +178,32 @@ const TableList: React.FC = () => {
         >
           {
             columns.map((item: any) => {
-              return item.valueType === 'option' ? null : <div key={item?.dataIndex + 'updata'}>
-                {item?.title}
-                <Input
-
-                  placeholder={item?.title}
-                  defaultValue={currentRow[item.dataIndex]}
-                  onInput={e => {
-                    setCurrentRow({ ...currentRow, [item.dataIndex]: e.currentTarget.value })
-
-
+              return item.valueType === 'option' ? null : item.valueType === 'image' ?
+                <div style={{ width: '100%' }} key={item?.dataIndex + 'updata'}> <Upload
+                  title='封面:' cutSize={2} showUploadList={false} Defurl={currentRow[item.dataIndex]} onChange={(e: any) => {
+                    setCurrentRow((d: any = {}) => { return { ...d, [item.dataIndex]: e } })
                   }}
-                  width="md"
-                  name={item?.dataIndex}
-                /><br /><br />
-              </div>
+                ></Upload></div> : <div key={item?.dataIndex + 'updata'}>
+                  {item?.title}
+                  <Input
+
+                    placeholder={item?.title}
+                    defaultValue={currentRow[item.dataIndex]}
+                    onInput={e => {
+                      setCurrentRow({ ...currentRow, [item.dataIndex]: e.currentTarget.value })
+
+
+                    }}
+                    width="md"
+                    name={item?.dataIndex}
+                  /><br /><br />
+                </div>
 
 
             })
           }
-        </ModalForm> : null}
+        </ModalForm> : null
+      }
 
     </PageContainer >
   );
